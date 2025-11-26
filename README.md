@@ -1,5 +1,7 @@
 # 🔐 Advanced Fraud Detection System
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ds-advanced-fraud-detection.streamlit.app)
+
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
