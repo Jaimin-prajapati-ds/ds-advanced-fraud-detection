@@ -1,124 +1,92 @@
 # 🔐 Advanced Fraud Detection System
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ds-advanced-fraud-detection.streamlit.app)
+<div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Status](https://img.shields.io/badge/Status-Active-success.svg)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ds-advanced-fraud-detection.streamlit.app/)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0%2B-orange.svg)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)](https://github.com/Jaimin-prajapati-ds/ds-advanced-fraud-detection)
+
+**Production-Grade Machine Learning System for Credit Card Fraud Detection**
+
+*Detecting fraudulent transactions with 98.1% precision using advanced ensemble methods and SMOTE-based imbalance handling*
+
+</div>
+
+---
 
 ## 📋 Project Overview
 
-An advanced machine learning project focused on detecting fraudulent credit card transactions using ensemble methods, sophisticated feature engineering, and class imbalance handling techniques. This project demonstrates production-ready ML practices including hyperparameter optimization, cross-validation, and comprehensive model evaluation.
+An advanced machine learning project focused on detecting fraudulent credit card transactions using ensemble methods, sophisticated feature engineering, and advanced class imbalance handling techniques. This project demonstrates production-ready ML practices including hyperparameter optimization, cross-validation, and comprehensive model evaluation.
+
+**Key Metrics:**
+- ✅ **98.1% Precision** | 86.4% Recall
+- ✅ **0.986 ROC-AUC** Score  
+- ✅ **73% Reduction** in false positives vs baseline
+- ✅ **₹75 Lakhs Annual Savings** (estimated business impact)
+
+---
 
 ## 🎯 Problem Statement
 
 Credit card fraud detection is a critical challenge in the financial industry. With the increasing volume of digital transactions, traditional rule-based systems are insufficient. This project implements advanced ML algorithms to identify fraudulent transactions with high precision while minimizing false positives.
 
+**Challenge:** Extreme class imbalance (0.172% fraud rate) requires specialized handling to prevent bias toward majority class.
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph LR
+    A["Raw Transaction Data"] --> B["Data Preprocessing"]
+    B --> C["Feature Engineering"]
+    C --> D["SMOTE Balancing"]
+    D --> E["Model Training"]
+    E --> F{"Ensemble Methods"}
+    F --> G["Random Forest"]
+    F --> H["XGBoost"]
+    F --> I["LightGBM"]
+    G --> J["Stacking Ensemble"]
+    H --> J
+    I --> J
+    J --> K["Model Evaluation"]
+    K --> L["Deployment"]
+    L --> M["FastAPI Backend"]
+    L --> N["Streamlit Dashboard"]
+    M -.-> O["Production API"]
+    N -.-> O
+```
+
+---
+
 ## 🚀 Key Features
 
-- **Advanced Feature Engineering**: Time-based features, transaction velocity, and statistical aggregations
-- **Class Imbalance Handling**: SMOTE, ADASYN, and class weight optimization
-- **Ensemble Methods**: Random Forest, XGBoost, LightGBM, and Stacking
-- **Hyperparameter Tuning**: Grid Search and Bayesian Optimization
-- **Cross-Validation**: Stratified K-Fold for reliable performance metrics
-- **Comprehensive Evaluation**: ROC-AUC, Precision-Recall curves, confusion matrix analysis
+- **Advanced Feature Engineering:** Time-based features, transaction velocity, and statistical aggregations
+- **Class Imbalance Handling:** SMOTE, ADASYN, and class weight optimization
+- **Ensemble Methods:** Random Forest, XGBoost, LightGBM, and Stacking
+- **Hyperparameter Tuning:** Bayesian optimization with Optuna
+- **Cross-Validation:** Stratified K-Fold for reliable performance metrics
+- **Comprehensive Evaluation:** ROC-AUC, Precision-Recall curves, confusion matrix analysis
+- **Production Ready:** Docker containerization, MLflow tracking, and API deployment
+- **Interactive Dashboard:** Streamlit UI with real-time predictions and threshold optimization
+
+---
 
 ## 📊 Dataset
 
-**Source**: Credit Card Fraud Detection Dataset (anonymized)
+- **Source:** Credit Card Fraud Detection Dataset (anonymized - Kaggle)
+- **Size:** 284,807 transactions with 31 features
+- **Fraud Rate:** 0.172% (492 fraudulent cases)
+- **Features:** V1-V28 (PCA-transformed), Time, Amount
+- **Challenge:** Highly imbalanced dataset requiring SMOTE/ADASYN handling
 
-**Features**:
-- 30 anonymized features (V1-V28 + Time + Amount)
-- 284,807 transactions
-- 492 fraudulent transactions (0.172% fraud rate)
-- Highly imbalanced dataset requiring special handling
+---
 
-## 🏗️ Project Structure
+## 📈 Performance Results
 
-```
-ds-advanced-fraud-detection/
-│
-├── data/
-│   ├── raw/                    # Original dataset
-│   └── processed/              # Cleaned and engineered features
-│
-├── notebooks/
-│   └── fraud_detection_analysis.md   # Complete EDA and modeling
-│
-├── src/
-│   ├── data_preprocessing.py   # Data cleaning and validation
-│   ├── feature_engineering.py  # Advanced feature creation
-│   ├── model_training.py       # Model training with tuning
-│   └── evaluation.py           # Comprehensive evaluation metrics
-│
-├── models/
-│   └── trained_models/         # Saved model artifacts
-│
-├── reports/
-│   └── project_report.md       # Business insights and findings
-│
-├── requirements.txt            # Python dependencies
-├── .gitignore                  # Git ignore rules
-└── README.md                   # Project documentation
-```
-
-## 🔧 Installation
-
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
-- Virtual environment (recommended)
-
-### Setup Instructions
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/Jaimin-prajapati-ds/ds-advanced-fraud-detection.git
-cd ds-advanced-fraud-detection
-```
-
-2. **Create virtual environment**
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-4. **Download dataset** (if not included)
-```bash
-# Place creditcard.csv in data/raw/ directory
-```
-
-## 🎯 Usage
-
-### 1. Data Preprocessing
-```bash
-python src/data_preprocessing.py
-```
-
-### 2. Feature Engineering
-```bash
-python src/feature_engineering.py
-```
-
-### 3. Model Training
-```bash
-python src/model_training.py
-```
-
-### 4. Model Evaluation
-```bash
-python src/evaluation.py
-```
-
-## 📈 Results
-
-### Model Performance Comparison
+### Model Comparison
 
 | Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
 |-------|----------|-----------|--------|----------|----------|
@@ -130,180 +98,202 @@ python src/evaluation.py
 
 ### Key Insights
 
-✅ **Best Model**: Stacking Ensemble achieves 98.1% precision with 86.4% recall
+✅ **Best Model:** Stacking Ensemble achieves 98.1% precision with 86.4% recall  
+✅ **Class Imbalance:** SMOTE improved minority class detection by 34%  
+✅ **Feature Importance:** V14, V4, and V12 are top fraud indicators  
+✅ **Business Impact:** Model reduces false positives by 73% compared to baseline  
 
-✅ **Class Imbalance**: SMOTE improved minority class detection by 34%
+---
 
-✅ **Feature Importance**: V14, V4, and V12 are top fraud indicators
-
-✅ **Business Impact**: Model reduces false positives by 73% compared to baseline
-
-## 🔍 Technical Highlights
-
-### Advanced Techniques Implemented
-
-1. **Feature Engineering**
-   - Time-based features (hour, day, transaction velocity)
-   - Rolling statistics (mean, std, count)
-   - Ratio features and polynomial interactions
-
-2. **Imbalance Handling**
-   - SMOTE (Synthetic Minority Over-sampling)
-   - ADASYN (Adaptive Synthetic Sampling)
-   - Class weight optimization
-
-3. **Model Optimization**
-   - Bayesian hyperparameter tuning
-   - Stratified cross-validation (5-fold)
-   - Early stopping for gradient boosting
-
-4. **Evaluation Metrics**
-   - ROC-AUC and PR-AUC curves
-   - Confusion matrix analysis
-   - Cost-sensitive evaluation
-
-## 💼 Business Impact & Real-World Application
+## 💼 Business Impact
 
 ### Financial Impact
 
-This fraud detection system delivers significant business value:
-
-- **Cost Savings**: At a 0.172% fraud rate with average transaction of $88, detecting 86.4% of fraud cases saves approximately **₹75 lakhs annually** per 100,000 transactions
-- **False Positive Reduction**: 73% reduction in false positives compared to baseline saves customer service costs and improves user experience
-- **Chargeback Prevention**: Early fraud detection reduces chargeback fees (₹1,500-3,000 per case) and maintains merchant standing with payment processors
-- **Brand Protection**: Proactive fraud prevention protects brand reputation and customer trust
+- **Cost Savings:** ₹75 lakhs annually (per 100,000 transactions at 0.172% fraud rate)
+- **False Positive Reduction:** 73% - Saves customer service costs and improves UX
+- **Chargeback Prevention:** Reduces chargeback fees (₹1,500-3,000 per case)
+- **Brand Protection:** Proactive fraud prevention protects brand reputation
 
 ### Real-World Applications
 
-**Banking & Financial Services**:
-- Real-time transaction monitoring for credit/debit cards
-- ATM withdrawal fraud detection
-- Online banking security
+🏦 **Banking & Financial Services:** Real-time transaction monitoring, ATM security  
+🛒 **E-commerce:** Payment gateway screening, account takeover prevention  
+🛡️ **Insurance:** Claims fraud detection, premium fraud identification  
 
-**E-commerce**:
-- Payment gateway fraud screening
-- Account takeover prevention
-- Shipping address verification
+---
 
-**Insurance**:
-- Claims fraud detection
-- Premium fraud identification
+##  Installation
 
-### Deployment Considerations
+### Prerequisites
 
-- **Latency**: Model inference < 50ms for real-time decisioning
-- **Scalability**: Handles 1000+ transactions per second
-- **Explainability**: SHAP values provide interpretable fraud scores for compliance
-- **A/B Testing**: Gradual rollout with 5% traffic initially
+- Python 3.8 or higher
+- pip package manager
+- Virtual environment (recommended)
 
-## 🎓 What I Learned
+### Setup Instructions
 
-### Technical Skills Developed
+```bash
+# Clone repository
+git clone https://github.com/Jaimin-prajapati-ds/ds-advanced-fraud-detection.git
+cd ds-advanced-fraud-detection
 
-**Machine Learning**:
-- Mastered handling severely imbalanced datasets (0.172% fraud rate)
-- Implemented advanced sampling techniques (SMOTE, ADASYN) with 34% improvement
-- Achieved production-grade model performance (98.1% precision, 86.4% recall)
-- Learned ensemble stacking methods for optimal model combination
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-**Feature Engineering**:
-- Created time-based features (hour, day, transaction velocity)
-- Developed statistical aggregations (rolling mean, std, count)
-- Engineered ratio features and polynomial interactions
-- Improved model performance by 15% through strategic feature creation
+# Install dependencies
+pip install -r requirements.txt
 
-**Model Optimization**:
-- Implemented Bayesian hyperparameter tuning with Optuna
-- Applied stratified K-fold cross-validation for robust evaluation
-- Used early stopping to prevent overfitting
-- Balanced precision-recall tradeoff for business requirements
+# Download dataset
+# Place creditcard.csv in data/raw/ directory
+```
 
-### Domain Knowledge
+---
 
-**Fraud Detection Specifics**:
-- Understood cost-sensitive learning (false negatives cost 100x more than false positives)
-- Learned fraud pattern detection and behavioral anomalies
-- Studied regulatory compliance requirements (PCI-DSS, GDPR)
-- Explored real-time fraud detection architectures
+## 🎯 Usage
 
-**Business Acumen**:
-- Quantified model impact in business metrics (cost savings, ROI)
-- Balanced model performance with operational constraints
-- Considered deployment infrastructure and monitoring
-- Learned to communicate technical results to non-technical stakeholders
+### 1. Data Preprocessing
 
-### Challenges Overcome
+```bash
+python src/data_preprocessing.py
+```
 
-1. **Extreme Class Imbalance**: Only 492 fraud cases in 284,807 transactions
-   - Solution: Combined SMOTE oversampling with careful validation strategy
+### 2. Feature Engineering
 
-2. **Feature Selection**: 30 anonymized features made domain interpretation difficult
-   - Solution: Used feature importance analysis and correlation studies
+```bash
+python src/feature_engineering.py
+```
 
-3. **Model Evaluation**: Standard accuracy metric was misleading (99.8% by predicting all non-fraud)
-   - Solution: Focused on precision-recall, F1-score, and PR-AUC metrics
+### 3. Model Training
 
-4. **Production Readiness**: Research notebooks needed productionization
-   - Solution: Refactored code into modular pipeline with separate preprocessing, training, and evaluation
+```bash
+python src/model_training.py
+```
 
-### Key Takeaways
+### 4. Model Evaluation
 
-✅ **Class imbalance requires specialized techniques** - Standard ML approaches fail on highly imbalanced data
+```bash
+python src/evaluation.py
+```
 
-✅ **Business context drives model decisions** - Optimized for precision to minimize customer friction
+### 5. Run Streamlit Dashboard
 
-✅ **Ensemble methods excel** - Stacking multiple models outperformed individual classifiers
+```bash
+streamlit run app.py
+```
 
-✅ **Feature engineering is crucial** - Domain-specific features provided 15% performance boost
+### 6. Start FastAPI Server
 
-✅ **Evaluation metrics matter** - ROC-AUC and PR-AUC better represent performance than accuracy
+```bash
+uvicorn main:app --reload
+```
 
+---
 
-## 💡 Future Enhancements
+## 📦 Deployment
 
-- [ ] Deep learning models (LSTM, Autoencoder)
-- [ ] Real-time fraud detection API
-- [ ] Explainable AI (SHAP, LIME)
-- [ ] Deployment with Docker and Kubernetes
-- [ ] MLOps pipeline with MLflow
-- [ ] A/B testing framework
+### Docker Deployment
+
+```bash
+# Build image
+docker build -t fraud-detection:latest .
+
+# Run container
+docker run -p 8000:8000 fraud-detection:latest
+```
+
+### Cloud Deployment
+
+- **Streamlit Cloud:** Deploy dashboard at https://ds-advanced-fraud-detection.streamlit.app/
+- **Railway:** Deploy FastAPI backend for real-time predictions
+- **AWS/GCP:** Production deployment with auto-scaling
+
+---
+
+## 🔧 Project Structure
+
+```
+ds-advanced-fraud-detection/
+├── data/
+│   ├── raw/                    # Original dataset
+│   └── processed/              # Cleaned & engineered features
+├── src/
+│   ├── data_preprocessing.py   # Data cleaning & preparation
+│   ├── feature_engineering.py  # Feature creation
+│   ├── model_training.py       # Model training pipeline
+│   ├── evaluation.py           # Model evaluation metrics
+│   └── predict.py              # Inference pipeline
+├── models/
+│   └── stacking_ensemble.pkl   # Trained model
+├── notebooks/
+│   └── eda_analysis.ipynb      # Exploratory data analysis
+├── config/
+│   ├── config.yaml             # Configuration file
+│   └── params.yaml             # Model parameters
+├── tests/
+│   ├── test_preprocessing.py   # Unit tests
+│   └── test_models.py
+├── app.py                      # Streamlit dashboard
+├── main.py                     # FastAPI application
+├── requirements.txt            # Dependencies
+├── Dockerfile                  # Container config
+├── .github/workflows/          # CI/CD pipeline
+└── README.md
+```
+
+---
+
+## 🎓 Technical Highlights
+
+### Advanced Techniques
+
+**Imbalance Handling:**
+- SMOTE (Synthetic Minority Over-sampling)
+- ADASYN (Adaptive Synthetic Sampling)
+- Class weight optimization
+
+**Feature Engineering:**
+- Time-based features (hour, day, transaction velocity)
+- Rolling statistics (mean, std, count)
+- Ratio features and polynomial interactions
+
+**Model Optimization:**
+- Bayesian hyperparameter tuning (Optuna)
+- Stratified cross-validation (5-fold)
+- Early stopping for gradient boosting
+
+**Evaluation Metrics:**
+- ROC-AUC and PR-AUC curves
+- Confusion matrix analysis
+- Cost-sensitive evaluation
+
+---
 
 ## 📚 Technologies Used
 
-- **Python 3.8+**: Core programming language
-- **Pandas & NumPy**: Data manipulation
-- **Scikit-learn**: Machine learning algorithms
-- **XGBoost & LightGBM**: Gradient boosting frameworks
-- **Imbalanced-learn**: SMOTE and sampling techniques
-- **Matplotlib & Seaborn**: Data visualization
-- **Optuna**: Hyperparameter optimization
+- **Python 3.8+:** Core programming language
+- **Pandas & NumPy:** Data manipulation
+- **Scikit-learn:** Machine learning algorithms
+- **XGBoost & LightGBM:** Gradient boosting
+- **Imbalanced-learn:** SMOTE and sampling
+- **Optuna:** Hyperparameter optimization
+- **FastAPI:** REST API framework
+- **Streamlit:** Interactive dashboard
+- **MLflow:** Model tracking
+- **Docker:** Containerization
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+---
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👤 Author
-
-**Jaimin Prajapati**
-- GitHub: [@Jaimin-prajapati-ds](https://github.com/Jaimin-prajapati-ds)
-- Project Link: [https://github.com/Jaimin-prajapati-ds/ds-advanced-fraud-detection](https://github.com/Jaimin-prajapati-ds/ds-advanced-fraud-detection)
+---
 
 ## 🙏 Acknowledgments
 
-- Dataset source: Kaggle Credit Card Fraud Detection
-- Inspiration from real-world fraud detection systems
-- scikit-learn and XGBoost communities
-
----
+- Dataset: Kaggle Credit Card Fraud Detection  
+- Inspiration: Real-world fraud detection systems  
+- Community: scikit-learn, XGBoost, and open-source ML communities  
 
 ⭐ **Star this repository if you find it helpful!** ⭐
